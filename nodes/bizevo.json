@@ -1,0 +1,42 @@
+{
+  "authorization": {
+    "sudo": {
+      "users": ["vagrant", "webservice"],
+      "passwordless": true,
+      "sudoers_defaults": [
+        "env_reset",
+        "mail_badpass",
+        "secure_path=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\""
+      ]
+    }
+  },
+  "automatic": {
+    "ipaddress": "precise"
+  },
+  "redis": {
+    "install_type": "source",
+    "source": {
+      "version": "2.8.13",
+      "url": "http://download.redis.io/releases/"
+    },
+    "symlink_binaries": true
+  },
+  "nodejs": {
+    "install_method": "binary"
+  },
+  "samba": {
+    "hosts_allow": "192.168.33.0/8",
+    "interfaces": "eth1 192.168.33.30"
+  },
+  "run_list": [
+    "yum",
+    "recipe[chef-solo-search]",
+    "recipe[selinux::disabled]",
+    "base::users",
+    "recipe[sudo]",
+    "recipe[ruby_build]",
+    "recipe[vim]",
+    "recipe[nodejs]",
+    "base"
+  ]
+}
