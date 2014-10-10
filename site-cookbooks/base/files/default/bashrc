@@ -1,0 +1,13 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific aliases and functions
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+export PATH=$PATH:/sbin:/opt/redis/bin
+alias gs='git status'
+PS1="[\h@\u:\W\$(__git_ps1)]\$ "
