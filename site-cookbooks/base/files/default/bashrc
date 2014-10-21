@@ -10,4 +10,8 @@ source ~/.git-completion.bash
 source ~/.git-prompt.sh
 export PATH=$PATH:/sbin:/opt/redis/bin
 alias gs='git status'
+alias bi='bundle install --path vendor/bundle'
+alias be='bundle exec'
+alias bep='bundle exec padrino'
+alias beps='bundle exec padrino s -h 0.0.0.0'
 PS1="[\h@\u:\W\$(__git_ps1)]\$ "
