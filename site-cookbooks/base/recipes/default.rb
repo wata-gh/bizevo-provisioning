@@ -85,6 +85,13 @@ cookbook_file '/home/webservice/.bashrc' do
   action :create
 end
 
+directory '/opt/bizevo' do
+  owner 'webservice'
+  group 'webservice'
+  mode 0755
+  action :create
+end
+
 #samba_user "webservice" do
 #  password "webservice!"
 #  action [:create, :enable]
