@@ -26,9 +26,6 @@ execute 'change timezone' do
   command 'cp -p /usr/share/zoneinfo/Japan /etc/localtime'
 end
 
-gem_package 'bundler'
-gem_package 'padrino'
-
 package 'ImageMagick'
 package 'ImageMagick-devel'
 package 'libxml2-devel'
@@ -51,6 +48,12 @@ end
 
 ruby_build_ruby '2.1.3' do
   action :install
+end
+
+%w/bundler padrino/.each do |g|
+  gem_package g do
+    gem_binary '/usr/local/ruby/2.1.3/bin/gem'
+  end
 end
 
 cookbook_file '/home/webservice/.git-completion.bash' do
