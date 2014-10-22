@@ -26,13 +26,15 @@
   },
   "samba": {
     "hosts_allow": "192.168.33.0/8",
-    "interfaces": "eth1 192.168.33.30"
+    "interfaces": "enp0s8 192.168.33.30"
   },
   "run_list": [
     "yum",
+    "base::packages",
     "recipe[chef-solo-search]",
     "recipe[selinux::disabled]",
     "base::users",
+    "recipe[samba::server]",
     "recipe[sudo]",
     "recipe[ruby_build]",
     "recipe[vim]",
