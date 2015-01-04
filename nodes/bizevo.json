@@ -28,8 +28,16 @@
     "hosts_allow": "192.168.33.0/8",
     "interfaces": "enp0s8 192.168.33.30"
   },
+  "mariadb": {
+    "use_default_repository": true
+  },
+  "ruby_build": {
+    "upgrade": "sync"
+  },
   "run_list": [
     "yum",
+    "recipe[mariadb::client]",
+    "recipe[mariadb::server]",
     "base::packages",
     "recipe[chef-solo-search]",
     "recipe[selinux::disabled]",
