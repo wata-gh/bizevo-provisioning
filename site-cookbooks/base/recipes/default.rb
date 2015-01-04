@@ -8,6 +8,7 @@
 #
 
 nodejs_npm 'gulp'
+nodejs_npm 'bower'
 
 execute 'change timezone' do
   not_if 'diff /usr/share/zoneinfo/Japan /etc/localtime > /dev/null 2>&1'
@@ -34,13 +35,13 @@ directory '/home/webservice/projects' do
   action :create
 end
 
-ruby_build_ruby '2.1.3' do
+ruby_build_ruby '2.1.5' do
   action :install
 end
 
 %w/bundler padrino/.each do |g|
   gem_package g do
-    gem_binary '/usr/local/ruby/2.1.3/bin/gem'
+    gem_binary '/usr/local/ruby/2.1.5/bin/gem'
   end
 end
 
@@ -83,10 +84,14 @@ directory '/opt/bizevo' do
   action :create
 end
 
-service "smb" do
+service 'mysql' do
+  action [:start]
+end
+
+service 'smb' do
   action [:enable, :start]
 end
 
-service "firewalld" do
+service 'firewalld' do
   action [:disable, :stop]
 end
