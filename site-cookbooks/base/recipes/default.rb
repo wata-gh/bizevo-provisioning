@@ -35,13 +35,14 @@ directory '/home/webservice/projects' do
   action :create
 end
 
-ruby_build_ruby '2.1.5' do
+RUBY_VERSION = '2.2.1'
+ruby_build_ruby RUBY_VERSION do
   action :install
 end
 
 %w/bundler padrino/.each do |g|
   gem_package g do
-    gem_binary '/usr/local/ruby/2.1.5/bin/gem'
+    gem_binary "/usr/local/ruby/#{RUBY_VERSION}/bin/gem"
   end
 end
 
@@ -84,7 +85,7 @@ directory '/opt/bizevo' do
   action :create
 end
 
-service 'mysql' do
+service 'mariadb' do
   action [:start]
 end
 
