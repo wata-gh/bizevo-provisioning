@@ -48,6 +48,8 @@ end
   end
 end
 
+chef_gem 'aws-sdk-v1'
+
 cookbook_file '/home/webservice/.git-completion.bash' do
   source 'git-completion.bash'
   owner 'webservice'
