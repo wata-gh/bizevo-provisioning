@@ -1,0 +1,19 @@
+{
+  "name": "app_server",
+  "default_attributes": {
+    "oracle-instant-client": {
+      "bucket": "bizevo-share",
+      "rpms": [
+        "oracle-instantclient-basic-10.2.0.5-1.x86_64.rpm",
+        "oracle-instantclient-devel-10.2.0.5-1.x86_64.rpm",
+        "oracle-instantclient-sqlplus-10.2.0.5-1.x86_64.rpm"
+      ]
+    }
+  },
+  "json_class": "Chef::Role",
+  "description": "This is a Role for setting up an application server",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[oracle-instant-client]"
+  ]
+}

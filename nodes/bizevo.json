@@ -42,6 +42,7 @@
     "recipe[ruby_build]",
     "recipe[vim]",
     "recipe[nodejs]",
-    "base"
+    "base",
+    "role[app_server]"
   ]
 }

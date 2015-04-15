@@ -8,6 +8,8 @@
 #
 
 nodejs_npm 'gulp'
+nodejs_npm 'gulp-util'
+nodejs_npm 'coffee-script'
 nodejs_npm 'bower'
 
 execute 'change timezone' do

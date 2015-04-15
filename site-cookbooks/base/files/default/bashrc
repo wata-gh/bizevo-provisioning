@@ -8,7 +8,11 @@ fi
 # User specific aliases and functions
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-export PATH=$PATH:/sbin:/opt/redis/bin
+export LANG=ja_JP.utf8
+export NLS_LANG=Japanese_Japan.JA16SJIS
+export ORACLE_HOME=/usr/lib/oracle/10.2.0.5/client64
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+export PATH=$PATH:/sbin:/opt/redis/bin:$ORACLE_HOME/bin
 alias gs='git status'
 alias bi='bundle install --path vendor/bundle'
 alias be='bundle exec'
