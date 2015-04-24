@@ -5,7 +5,7 @@ fi
 
 # User specific environment and startup programs
 
-RUBY=/usr/local/ruby/2.2.1
+RUBY=/usr/local/ruby/2.2.2
 PATH=$RUBY/bin:$PATH:$HOME/bin
 
 export PATH

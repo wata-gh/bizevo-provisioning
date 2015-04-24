@@ -37,7 +37,7 @@ directory '/home/webservice/projects' do
   action :create
 end
 
-RUBY_VERSION = '2.2.1'
+RUBY_VERSION = '2.2.2'
 ruby_build_ruby RUBY_VERSION do
   action :install
 end
