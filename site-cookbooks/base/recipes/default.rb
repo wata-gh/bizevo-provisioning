@@ -93,6 +93,15 @@ service 'mariadb' do
   action [:start]
 end
 
+execute 'postgresql-setup' do
+  not_if  { File.exists? '/var/lib/pgsql/data/PG_VERSION' }
+  command 'postgresql-setup initdb'
+end
+
+service 'postgresql.service' do
+  action [:start]
+end
+
 service 'smb' do
   action [:enable, :start]
 end
