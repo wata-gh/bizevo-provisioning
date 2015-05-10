@@ -17,11 +17,11 @@ execute 'change timezone' do
   command 'cp -p /usr/share/zoneinfo/Japan /etc/localtime'
 end
 
-package 'ImageMagick'
-package 'ImageMagick-devel'
-package 'libxml2-devel'
-package 'libxslt'
-package 'libxslt-devel'
+%w/ImageMagick ImageMagick-devel libxml2 libxml2-devel libxslt libxslt-devel/.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
 
 directory '/home/webservice' do
   owner 'webservice'
@@ -48,7 +48,7 @@ end
   end
 end
 
-chef_gem 'aws-sdk-v1'
+gem_package 'aws-sdk-v1'
 
 cookbook_file '/home/webservice/.git-completion.bash' do
   source 'git-completion.bash'
