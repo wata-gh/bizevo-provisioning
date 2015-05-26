@@ -14,8 +14,14 @@ export ORACLE_HOME=/usr/lib/oracle/10.2.0.5/client64
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 export PATH=$PATH:/sbin:/opt/redis/bin:$ORACLE_HOME/bin
 alias gs='git status'
+alias gc='git checkout'
+alias gd='git diff'
 alias bi='bundle install --path vendor/bundle'
 alias be='bundle exec'
 alias bep='bundle exec padrino'
 alias beps='bundle exec padrino s -h 0.0.0.0'
 PS1="[\h@\u:\W\$(__git_ps1)]\$ "
+
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi

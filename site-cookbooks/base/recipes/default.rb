@@ -109,3 +109,7 @@ end
 service 'firewalld' do
   action [:disable, :stop]
 end
+
+service 'postfix' do
+  action [:enable, :start]
+end
